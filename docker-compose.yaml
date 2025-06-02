@@ -1,0 +1,22 @@
+services:
+    db:
+        image: postgres:17.4
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: salud
+            POSTGRES_PASSWORD: salud
+            POSTGRES_DB: usuarios
+        volumes:
+            - db_volume:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "salud"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+    back:
+        build:
+            context: back
+            dockerfile: Dockerfile
+volumes:
+    db_volume:
