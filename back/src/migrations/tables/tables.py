@@ -1,8 +1,3 @@
-# Set up de alembic:
-
-1. Ahora actualicemos una tabla existente, por ejemplo, la tabla `users` para agregar un nuevo campo `age`:
-
-```python
 # models.py
 from sqlalchemy import Table, Column, String, MetaData, Integer
 
@@ -15,4 +10,3 @@ users = Table(
     Column('name', String, nullable=False),
     Column('age', Integer, nullable=True)  # Nuevo campo age
 )
-```
