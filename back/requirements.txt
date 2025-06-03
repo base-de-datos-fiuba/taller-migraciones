@@ -3,3 +3,4 @@ fastapi
 requests
 alembic
 psycopg2-binary
+sqlalchemy
