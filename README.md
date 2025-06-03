@@ -79,3 +79,9 @@ Dentro del directorio de versions, debería aparecer un archivo con la migració
 ```bash
 alembic upgrade head
 ```
+
+8. Verificamos que la tabla se haya creado correctamente:
+```bash
+docker exec -it <nombre_container> psql -U salud -d usuarios -c "SELECT * FROM users;"
+```
+o usar dbeaver
