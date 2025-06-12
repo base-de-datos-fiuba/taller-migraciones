@@ -1,6 +1,6 @@
-# Set up de alembic:
+# Usemos alembic!:
 
-1. Ahora actualicemos una tabla existente, por ejemplo, la tabla `users` para agregar un nuevo campo `age`:
+1. Actualicemos una tabla existente, por ejemplo, la tabla `users` para agregar un nuevo campo `age`:
 
 ```python
 # models.py
