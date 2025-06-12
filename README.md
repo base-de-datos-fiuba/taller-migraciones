@@ -1,4 +1,4 @@
-# Usemos alembic!:
+# Usemos alembic!
 
 1. Actualicemos una tabla existente, por ejemplo, la tabla `users` para agregar un nuevo campo `age`:
 
