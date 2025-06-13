@@ -4,7 +4,7 @@ def connect_to_db(host: str = "localhost", port: str = "5432") -> psycopg2.exten
     """Connect to the PostgreSQL database."""
     try:
         connection = psycopg2.connect(
-            dbname="salud",
+            dbname="usuarios",
             user="salud",
             password="salud",
             host=host,

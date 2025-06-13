@@ -18,5 +18,12 @@ services:
         build:
             context: back
             dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        environment:
+            DB_HOST: db
+            DB_PORT: 5432
+        volumes:
+            - ./back:/app
 volumes:
     db_volume:

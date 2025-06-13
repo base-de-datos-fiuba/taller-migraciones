@@ -1,9 +1,7 @@
 # main.py
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import Dict
-from src.service.users import UserService
+from src.control.users import router as users_router
 
 app = FastAPI()
 app.add_middleware(
@@ -14,18 +12,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-class User(BaseModel):
-    name: str
-    email: str
-
-@app.post("/users/")
-def create_user(user: User) -> Dict[str, str]:
-    """
-    Creates a new user with the provided name and email.
-    """
-    result = UserService.create_user(user.name, user.email)
-    return {
-        "name": result.name,
-        "email": result.email
-    }
+app.include_router(users_router)

@@ -1,3 +1,4 @@
+import os
 from src.utils.connect_to_db import connect_to_db
 
 def execute_query(query):
@@ -11,7 +12,7 @@ def execute_query(query):
     Returns:
         list: A list of tuples containing the results of the query.
     """
-    with connect_to_db() as db_connection:
+    with connect_to_db(host=os.getenv("DB_HOST"), port=os.getenv("DB_PORT")) as db_connection:
         cursor = db_connection.cursor()
         try:
             cursor.execute(query)
