@@ -116,3 +116,5 @@ Y corremos el servidor:
 ```bash
 docker compose up --build back
 ```
+
+deberíamos poder entrar a la interfaz de fastAPI en `http://localhost:8000/docs` y ver el endpoint `/users/` que nos devuelve una lista de usuarios con su edad calculada.
