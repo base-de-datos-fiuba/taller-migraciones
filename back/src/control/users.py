@@ -12,3 +12,11 @@ def get_users_with_age():
     # users = UserService.get_users_with_age()
     return {"users": users}
 
+
+@router.get("/users_age_sqlalchemy", summary="Get users with age using SQLAlchemy")
+def get_users_with_age_sqlalchemy():
+    """
+    Retrieve users with their age calculated from birthdate using SQLAlchemy.
+    """
+    users = UserService.get_users_with_age_sqlalchemy()
+    return {"users": users}

@@ -49,3 +49,19 @@ class UserService:
             age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
             user['age'] = age
         return results_dict
+
+    @staticmethod
+    def get_users_with_age_sqlalchemy():
+        """Retrieve users with their birthdate using SQLAlchemy."""
+        results = UserQueries.get_users_with_birthdate_sqlalchemy()
+
+        if not results:
+            return []
+
+        results_dict = [{"email": user.email, "birthdate": user.birthdate} for user in results]
+        for user in results_dict:
+            today = datetime.date.today()
+            birthdate = user['birthdate']
+            age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+            user['age'] = age
+        return results_dict
