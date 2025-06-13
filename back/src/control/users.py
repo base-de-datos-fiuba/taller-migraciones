@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from src.service.users import UserService
 
 router = APIRouter(prefix="/users", tags=["users"])
