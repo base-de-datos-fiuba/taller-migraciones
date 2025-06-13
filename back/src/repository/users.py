@@ -12,3 +12,7 @@ class UserQueries:
     @staticmethod
     def update_user_password(user_id: str, new_password: str) -> str:
         return f"UPDATE users SET password = '{new_password}' WHERE id = '{user_id}'"
+
+    @staticmethod
+    def get_users_with_birthdate() -> str:
+        return "SELECT email, birthdate FROM users WHERE birthdate IS NOT NULL"

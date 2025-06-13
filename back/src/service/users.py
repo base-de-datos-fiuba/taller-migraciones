@@ -1,3 +1,4 @@
+import datetime
 from src.utils.execute_query import execute_query
 from src.repository.users import UserQueries
 from src.migrations.tables.tables import users
@@ -32,3 +33,19 @@ class UserService:
         """Create a new user with the provided email and name."""
         execute_query(UserQueries.create_user(email, name))
         return {"email": email, "name": name}
+
+    @staticmethod
+    def get_users_with_age():
+        """Retrieve users with their birthdate."""
+        results = execute_query(UserQueries.get_users_with_birthdate())
+
+        if not results:
+            return []
+
+        results_dict = [{"email": email, "birthdate": birthdate} for email, birthdate in results]
+        for user in results_dict:
+            today = datetime.date.today()
+            birthdate = user['birthdate']
+            age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+            user['age'] = age
+        return results_dict
